@@ -31,6 +31,8 @@ sub getvocab{
 	}
 	return %taglist;
 }
+
+
 my $VLIST = "vocab.pro";
 
 my $FILE;
@@ -39,9 +41,12 @@ open $FILE, "<", $VLIST or die $!;
 my %taglist = getvocab $FILE;
 close $FILE;
 
-print $taglist{'pn'}[1];
-print pop @{ $taglist{'iv'} };
+my @cl = <STDIN>;
+
+for (my $i = 0; $i < scalar(@cl); $i++){
+		
+}
+
+my $u = join(',',@cl);
 
 
-#my @cl = <STDIN>;
-#my $u = join(',',@cl);
