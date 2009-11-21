@@ -11,37 +11,50 @@ sub getvocab{
 	{	
 		#print;
 		if ($start == 1){
-			if ($line ne ''){
-				if ($pos == ''){
+			if ($line =~ m/-->/){
+				if ($pos eq ''){
 					my @splitup = split(/\(/,$line);
-					
 					$pos = $splitup[0];
 					$taglist{$pos}[0] = ();		
 				}
-				my $word = @{split(/[\(\)]/,$line)}[2];
+				my @splitup2 = split(/[\(\)]/,$line);
+				my $word = $splitup2[2];
 				push (@{ $taglist{$pos}},$word);
 			}
 			else {
-				$pos == '';
+				$pos = '';
 			}
 		}
-		if (index ($line,'%vocab list') == 0){
+		if ($line =~ m/%vocab list/){
 			$start = 1;
 		}
 	}
 	return %taglist;
 }
-my $VLIST = "vocab.pro";
 
+sub hl_search{
+	my $search = shift @_;
+	my %taglist = @_;
+
+	for my $key (keys %taglist){
+		my @array = @{$taglist{$key}};
+		for my $value (@array){
+		 if ($search eq $value){
+			return $key;
+			}
+		} 
+	}
+	return 'nothing';
+}
+
+my $VLIST = "vocab.pro";
 my $FILE;
 
 open $FILE, "<", $VLIST or die $!;
 my %taglist = getvocab $FILE;
 close $FILE;
 
-print $taglist{'pn'}[1];
-print pop @{ $taglist{'iv'} };
-
+print hl_search('writes',%taglist);
 
 #my @cl = <STDIN>;
 #my $u = join(',',@cl);
