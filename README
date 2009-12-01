@@ -1,5 +1,8 @@
+12/1
+Nine pages into a paper. The background of natural language parsing as a general practice is written, and now I've got to write the advantages of using Prolog as both the natural language parser and the expert system parts of a database, and describe how a dual-Prolog database would handle various aspects of a Natural Language Database.
+
 11/24
-I've returned to Natural Language Databasing. I have dropped entirely the construction of any program. Instead, I will use existing programs such as Wolfram Alpha, Google, and, if I can possibly find one, something that actually claims to be a Natural Language Database as examples in a paper discussing a theorized Natural Language Database using a Prolog backend and an imperative (Perl) frontend. I'll update my abstract later today.
+I've returned to Natural Language Databasing. I have dropped entirely the construction of any program. Instead, I will use existing programs such as Wolfram Alpha, Google, and, if I can possibly find one, something that actually claims to be a Natural Language Database as examples in a paper discussing a theorized Natural Language Database using a Prolog backend and an imperative (Perl) frontend. My abstract has been appropriately updated.
 
 11/17
 Got a local directory using Cygwin on my personal laptop
